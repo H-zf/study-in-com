@@ -41,7 +41,11 @@ Git 发版的步骤
 1. 首先是在远程的tag上创建一个分支 然后切换过去 eg: git branch release/v1.73.0 v1.72.0
 2. 然后在分支上cherrypick自己需要的代码hash  eg: git cherry-pick 0396bccb8829cd9efe4b0a17d19d642bb2e4ffa4
 3. 然后推到远程的分支上 flow pick start 
-如果此时线上的代码有问题 此时应该切换到master分支上 提交自己的fix 然后再自己的分支上将这次的代码cherrypick过去 
+如果此时线上的代码有问题 此时应该切换到master分支上 提交自己的fix 然后再自己的分支上将这次的代码cherrypick过去
+## git use tips
+git在使用的时候是可以将暂时写的使用git stash 然后进行切换分支开发其他功能并将其他推送到远程，本地再使用git stash pop将缓存的内容取出来
+git也是支持多次commit就是刚刚commit了 但是又有点改动又可以继续commit
+git clone的时候是可以在指定文件夹的外层拉去的 拉取成功之后 文件夹中就会多出一个项目的文件夹
 ## 抓包工具 proxyman 使用步骤
 1 下载安装
 2  安卓手机需要安装证书 用手机上下载的chrome打开 http://proxy.man/ssl 下载一个pem的证书进行安装 
