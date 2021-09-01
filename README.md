@@ -312,6 +312,7 @@ return promise;
 handlePromise().then((res) => {
   console.log(res)
 })
+	
 注释: 在请求超时时候会给promise添加timeout方法并且去执行timeout方法，如果在第二次执行next获取到了数据 则在.then是可以获取到数据 进行了一个超时兜底；
 
 
