@@ -291,19 +291,29 @@ Omit 从一个复合类型中，剔除几个属性，剩下的组成一个新的
 
 
 ## promise
-用法1：handlePromise() {
-   let rs;let rj;
+用法1：
+handlePromise() {
+   let rs;
+   let rj;
    const promise = new Promise((resolve, reject) => {
 	(rs = resolve), (rj = reject);
-    });
-    setTimeout(() => {
-	rs("123123213213");
-    }, 1000);
-   return promise;
+   });
+   function next() {
+	axios.post("/api/payCharge").then(() => {
+	  rs("11111111111111111");
+   }).catch(() => {
+	  promise.timeout = setTimeout(next, 1000);
+   })
 }
+
+next();
+return promise;
+},
 handlePromise().then((res) => {
   console.log(res)
 })
+注释: 在请求超时时候会给promise添加timeout方法并且去执行timeout方法，如果在第二次执行next获取到了数据 则在.then是可以获取到数据 进行了一个超时兜底；
+
 
 
 
