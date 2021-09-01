@@ -288,7 +288,22 @@ Omit 从一个复合类型中，剔除几个属性，剩下的组成一个新的
 3 h5中跳转到小程序可以直接使用location.href进行跳转
 
 ## animation
-	
+
+
+## promise
+用法1：handlePromise() {
+   let rs;let rj;
+   const promise = new Promise((resolve, reject) => {
+	(rs = resolve), (rj = reject);
+    });
+    setTimeout(() => {
+	rs("123123213213");
+    }, 1000);
+   return promise;
+}
+handlePromise().then((res) => {
+  console.log(res)
+})
 
 
 
