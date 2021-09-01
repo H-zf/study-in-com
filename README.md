@@ -1,5 +1,6 @@
 # study-in-com
-## Js在使用for in遍历对象的时候会讲对象的键1234变成字符串
+Js在使用for in遍历对象的时候会讲对象的键1234变成字符串
+
 const { status } = (this.refundDetail = data);
 
 先赋值然后再从数据中结构status出来
