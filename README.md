@@ -481,7 +481,42 @@ handlePromise().then((res) => {
 
 ## 公众号开发在微信开发者工具上访问也是需要在微信后台配置权限的和小程序一样 都需要权限
 
+需求：fn(a,b)(c) fn(a)(b)(c) fn(a,b,c) 都能输出6
 
+实现：
+
+1.相比较参数个数都是3个 输出6是三个参数的和 也就是说
+
+function add(a,b,c) {
+
+    return a + b + c
+
+}
+
+2.参数不够3个时，return出一个函数进行参数的接受， 如果参数够了3个，则使用add函数进行求和
+
+
+function currying(fn, length){
+  let length = length || fn.length // 第一次不用传递length 直接取fn的参数个数 需要注意的是 fn的参数不能设置默认值
+
+  //将函数add丢进去return出去一个函数来进行参数的收集 
+
+  return function(...args) {
+
+  //此时的args则是接受的参数的个数
+
+    args.length >= length ? fn.apply(this, args) : currying(fn.bind(this, ...args), length - args.length)
+
+  }
+
+}
+
+fn = currying(add)
+
+此时就完成实现
+
+找出变化的点，刚开始 需要比较的参数个数是3 如果你传递进来的是3个 就直接调用add函数 
+如果第一次传递的是两个参数，则仍需要传递出去一个函数来进行参数接收 。则下次比较的参数就应该是1个 原先的三个减去传进来的两个 则是1个 如果再次传进来一个参数 就应该调用fn函数
 
 
 
