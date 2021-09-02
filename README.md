@@ -518,6 +518,23 @@ fn = currying(add)
 找出变化的点，刚开始 需要比较的参数个数是3 如果你传递进来的是3个 就直接调用add函数 
 如果第一次传递的是两个参数，则仍需要传递出去一个函数来进行参数接收 。则下次比较的参数就应该是1个 原先的三个减去传进来的两个 则是1个 如果再次传进来一个参数 就应该调用fn函数
 
+## cookie的携带方式
+请求：本地起服务在http:local.school.com 浏览器打开之后向http:test.school.com上进行请求；
 
+此时需要在请求http:test.school.com上携带上cookie;
+
+第一步： 在http:local.school.com域名下设置cookie
+
+第二步：
+	
+此时应该区分请求的方式：
+
+1.fetch的方式，在该请求方式下请求http:test.school.com是不会设置cookie的 即使是同域情况下也不会携带。则此时应该设置with-credentials: true才能在请求的时候将当前local的cookie携带
+
+2.axios ajax 的方式，在同域的情况下，会自动携带cookie。在不同域也就是上述这种场景。不会自己带上，则需要设置with-credentials: true，才能在请求的时候携带上local本地的域名
+
+区分：当线上的域名与请求的域名在相同域名下，设置cookie如果用的是axios ajax的方式请求则都能携带上cookie，如果是不同域则可以设置with-credentials: true才能在请求的时候携带上cookie
+
+所以我们在本地起服务与线上环境进行联调的时候，如果本地需要设置cookie则是在本地的域名下进行设置cookie，不应该是在线上的域名下设置cookie。
 
 
