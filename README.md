@@ -553,4 +553,6 @@ fn = currying(add)
 
 栈和堆都是用来存储不同的数据类型。最终是在内存中存储
 
+[].shift.call(arguments)是将arguments伪数组，调用数组的shift方法，截取伪数组中的第一个参数， shift会修改到原数组，所以此时的arguments就是去除第一项的参数集合
+
 
