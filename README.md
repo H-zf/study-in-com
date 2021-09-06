@@ -525,9 +525,11 @@ function foo(a,b){
 
 let a = foo.bind(this, 1);
 
-a.apply(this, 2);
+a(2);
 
-console.log(1, 2);
+结果如下：
+
+console.log(1, 2); // 原因就是bind会参数利用科理化来进行收集，并返回新的函数
 
 
 fn = currying(add)
