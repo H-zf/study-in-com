@@ -518,12 +518,14 @@ bind函数也称为延迟调用函数，里面实现的原理相当于给修改t
 bind也是使用了颗粒化将参数进行递归传递，如果一个函数，如下
 
 function foo(a,b){
+
   console.log(a,b);
+
 }
 
-let a = foo.bind(this, 1)
+let a = foo.bind(this, 1);
 
-a.apply(this, 2)
+a.apply(this, 2);
 
 console.log(1, 2);
 
