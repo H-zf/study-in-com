@@ -515,6 +515,19 @@ function currying(fn, length){
 
 bind函数也称为延迟调用函数，里面实现的原理相当于给修改this指向的对象添加一个新的函数，也就是在bind函数中return出一个新的函数，bind会将第一次传递进行的参数进行收集。
 
+bind也是使用了颗粒化将参数进行递归传递，如果一个函数，如下
+
+function foo(a,b){
+  console.log(a,b);
+}
+
+let a = foo.bind(this, 1)
+
+a.apply(this, 2)
+
+console.log(1, 2);
+
+
 fn = currying(add)
 
 此时就完成实现
@@ -554,5 +567,7 @@ fn = currying(add)
 栈和堆都是用来存储不同的数据类型。最终是在内存中存储
 
 [].shift.call(arguments)是将arguments伪数组，调用数组的shift方法，截取伪数组中的第一个参数， shift会修改到原数组，所以此时的arguments就是去除第一项的参数集合
+
+
 
 
