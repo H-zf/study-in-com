@@ -572,6 +572,8 @@ fn = currying(add)
 
 [].shift.call(arguments)是将arguments伪数组，调用数组的shift方法，截取伪数组中的第一个参数， shift会修改到原数组，所以此时的arguments就是去除第一项的参数集合
 
+中间件是一个数据共享池，也类似一个拦截器，所有的数据改动都会到中间件中。
+
 
 
 
