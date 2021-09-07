@@ -574,6 +574,28 @@ fn = currying(add)
 
 中间件是一个数据共享池，也类似一个拦截器，所有的数据改动都会到中间件中。
 
+## 正则
+
+let reg = /token=(\w*)/g
+
+let str = token=wqeqweqweqweqwe&cookie=qweqwewsadadwqezc&token=uiiuwqeqwey
+
+当使用正则test的方法时，如果正则使用的是全局g 
+
+则每使用一次reg.test(str)正则的lastindex都会更新一次 当匹配两次时就会出现错误
+
+第一次
+
+reg.test(str) -------- true
+
+第二次
+
+reg.test(str) -------- true
+
+第三次
+
+reg.test(str) -------- false
+
 
 
 
