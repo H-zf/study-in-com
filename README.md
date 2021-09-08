@@ -601,6 +601,7 @@ new promise的时候给构造函数添加一个函数参数，在构造函数中
 
 问题：在new promise执行传入的函数时，队列中没有then传入的函数。 此时的解决办法是，在then里面会去进行判断，当status仍然是pending的时候，代表resolve还没有执行（因为执行了状态就会变化）。此时就需要将then传入的函数收集起来，在resolve的时候就会调用函数，并将值作为形参传递。如果status改变成了fulfilled就代表resolve已经执行了，value值已经收集起来了，此时直接调用then传入的函数，并将value作为形参传入即可。（所以常说，promise的状态一旦改变就不会在发生变化）
 
+
 class Promise {
 
     callbacks = [];
@@ -641,6 +642,74 @@ class Promise {
     }
 
 }
+
+promise的链式调用原理，在promise执行then函数的时候，会再次return new promise 如果then没有传入函数只是调用，例如.then().then((res) => res) 此时会利用promise中的resolve方法将this.value再次包裹成promise 如果传入了一个函数，会先将函数进行执行（此时就是当前then传递的函数执行），再将返回的值，再次利用resolve的方法封装成一个promise，留给下一个then
+
+class Promise {
+
+    callbacks = [];
+
+    state = 'pending';//
+
+    value = null;//保存结果
+
+    constructor(fn) {
+
+        fn(this._resolve.bind(this));
+
+    }
+
+    then(onFulfilled) 
+
+        return new Promise(resolve => {
+
+            this._handle
+                onFulfilled: onFulfilled || null,
+                resolve: resolve
+            });
+
+        });
+
+    }
+
+    _handle(callback) {
+
+        if (this.state === 'pending') {
+
+            this.callbacks.push(callback);
+
+            return;
+
+        }
+
+        //如果then中没有传递任何东西
+
+        if (!callback.onFulfilled) 
+
+            callback.resolve(this.value);
+
+            return;
+
+        }
+
+        var ret = callback.onFulfilled(this.value);
+
+        callback.resolve(ret
+
+    }
+
+    _resolve(value) 
+
+        this.state = 'fulfilled';//改变状态
+
+        this.value = value;//保存结果
+
+        this.callbacks.forEach(callback => this._handle(callback));
+
+    }
+
+}
+
 
 
 
