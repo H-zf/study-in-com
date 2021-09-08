@@ -596,6 +596,51 @@ reg.test(str) -------- true
 
 reg.test(str) -------- false
 
+## promise原理
+new promise的时候给构造函数添加一个函数参数，在构造函数中将函数进行执行，执行时给函数添加一个函数（此函数为resolve）形参，然后在函数（此函数为new promise传入的函数）执行的时候再去执行resolve的时候，首先会将值保存起来。将状态变换成fulfilled。此时会去判断队列（此队列是收集then时传入的函数）中是否存在函数，如果存在就循环调用，并将值作为函数参数进行传递。then的时候会将函数传入，构造函数会进行利用队列进行收集。
+
+问题：在new promise执行传入的函数时，队列中没有then传入的函数。 此时的解决办法是，在then里面会去进行判断，当status仍然是pending的时候，代表resolve还没有执行（因为执行了状态就会变化）。此时就需要将then传入的函数收集起来，在resolve的时候就会调用函数，并将值作为形参传递。如果status改变成了fulfilled就代表resolve已经执行了，value值已经收集起来了，此时直接调用then传入的函数，并将value作为形参传入即可。（所以常说，promise的状态一旦改变就不会在发生变化）
+
+class Promise {
+
+    callbacks = [];
+
+    state = 'pending';//增加状态
+
+    value = null;//保存结果
+
+    constructor(fn) {
+
+        fn(this._resolve.bind(this));
+
+    }
+
+    then(onFulfilled) {
+
+        if (this.state === 'pending') {//在resolve之前，跟之前逻辑一样，添加到callbacks中
+
+            this.callbacks.push(onFulfilled);
+
+        } else {//在resolve之后，直接执行回调，返回结果了
+
+            onFulfilled(this.value);
+
+        }
+
+        return this;
+    }
+
+    _resolve(value) {
+
+        this.state = 'fulfilled';//改变状态
+
+        this.value = value;//保存结果
+
+        this.callbacks.forEach(fn => fn(value));
+
+    }
+
+}
 
 
 
