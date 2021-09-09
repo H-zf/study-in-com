@@ -753,6 +753,15 @@ if (
 ## scrollIntoView
 是可以将当前设置id的元素，自动与父元素底部对齐；eg: scrollIntoView({ behavior: 'smooth', block: 'end' })
 
+## css函数env()、constant()
+设置安全区域 因为一般的机型都存在一定的安全区域，简单点就是手机打开页面的时候会触及到屏幕四周的非安全区域，有时会出现乱入的感觉，重合什么的 我们就需要将两个区域隔离开
+
+safe-area-inset-left：安全区域距离左边边界的距离
+safe-area-inset-right：安全区域距离右边边界的距离
+safe-area-inset-top：安全区域距离顶部边界的距离
+safe-area-inset-bottom ：安全距离底部边界的距离
+
+主要就是为了将我们的页面内容展示到安全区域内，不能超出；padding-bottom: constant(safe-area-inset-bottom);
 
 
 
