@@ -709,6 +709,9 @@ class Promise {
     }
 
 }
+	
+## scrollIntoView
+是可以将当前设置id的元素，自动与父元素底部对齐；
 
 
 
