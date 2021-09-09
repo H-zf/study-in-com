@@ -709,6 +709,44 @@ class Promise {
     }
 
 }
+
+let a = new Promise((resolve) => {
+
+	resolve('123');
+
+})
+
+let b = Promise.resolve(a);
+	
+b.then((res) => {
+
+	console.log('res',res); // 123
+
+})
+
+resolve的方法实则是获取到value并赋值给this.value 便于then的时候能调用函数传递值；
+
+问题点： 当接受到的是一个promise的时候，先去获取到该promise的then方法，然后调用then方法，then方法就会判断是否状态为pending，是则是痛callbacks收集，否则调用then的回调函数，并使用value作为行参
+
+if (
+
+          value &&
+
+          (typeof value === "object" || typeof value === "function")
+
+        ) {
+
+          var then = value.then;
+
+          if (typeof then === "function") {
+
+            then.call(value, this._resolve.bind(this));
+
+            return;
+
+          }
+
+        }
 	
 ## scrollIntoView
 是可以将当前设置id的元素，自动与父元素底部对齐；eg: scrollIntoView({ behavior: 'smooth', block: 'end' })
