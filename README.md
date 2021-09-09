@@ -728,6 +728,8 @@ resolve的方法实则是获取到value并赋值给this.value 便于then的时�
 
 问题点： 当接受到的是一个promise的时候，先去获取到该promise的then方法，然后调用then方法，then方法就会判断是否状态为pending，是则是痛callbacks收集，否则调用then的回调函数，并使用value作为行参
 
+Promise.resolve() 原理实则是return 出一个promise 然后调用了这个promise的resolve方法，把值收集了起来。以便于你再then的时候直接调用函数并以value作为形参
+
 if (
 
           value &&
