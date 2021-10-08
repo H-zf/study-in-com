@@ -61,9 +61,18 @@ Git 发版的步骤
 
 2. 然后在分支上cherrypick自己需要的代码hash  eg: git cherry-pick 0396bccb8829cd9efe4b0a17d19d642bb2e4ffa4
 
-3. 然后推到远程的分支上 flow pick start 
+3. 然后推到远程的分支上  add commit pull push 
 
-如果此时线上的代码有问题 此时应该切换到master分支上 提交自己的fix 然后再自己的分支上将这次的代码cherrypick过去
+4. 代码库操作：推到远程分支之后，会提示你需要自己创建merge 然后自己创建一个merge添加一些修改的点，然后再合到master  然后再出发cicd
+
+5. Cicd 从release分之合过来的代码进行区分 发布到不同的服务器
+
+fflow 实际是做了一个前置，自己给你创建了一个merge
+
+因为正常的流程应该是推送到远程之后，自己需要通过提示创建mr 然后就会有提示要进行代码审核
+
+如果此时线上的代码有问题 此时应该切换到master分支上 提交自己的fix 然后再自己的分支上将这次的代码cherrypick过去 
+
 ## git use tips
 git在使用的时候是可以将暂时写的使用git stash 然后进行切换分支开发其他功能并将其他推送到远程，本地再使用git stash pop将缓存的内容取出来
 
