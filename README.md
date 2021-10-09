@@ -776,5 +776,14 @@ safe-area-inset-bottom ：安全距离底部边界的距离
 
 主要就是为了将我们的页面内容展示到安全区域内，不能超出；padding-bottom: constant(safe-area-inset-bottom);
 
+微信分享步骤
+
+1.首先import Share from 'wechat-share-manager';初始化一个分享实例
+
+2.调用实例的init的方法添加一些配置
+
+3.再着引入import wx from 'weixin-js-sdk';
+
+4.在需要分享的地方调用实例的share方法，传入回调函数，并且在回调函数中，调用wxsdk的ready方法，因为在调用所有的方法都需要在微信config信息认证之后，ready就能保证在认证信息之后再执行
 
 
