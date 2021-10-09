@@ -796,7 +796,7 @@ safe-area-inset-bottom ：安全距离底部边界的距离
 
 3.后台拿到code，去访问微信后台，返回openid和seesion_key
 
-4.本地就可以保存这个openid，第二次登陆就不用授权了
+4.本地就可以保存这个openid，第二次登陆时，就直接获取到openid去请求登陆接口进行登录了
 	
 	
 	
