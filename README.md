@@ -776,7 +776,7 @@ safe-area-inset-bottom ：安全距离底部边界的距离
 
 主要就是为了将我们的页面内容展示到安全区域内，不能超出；padding-bottom: constant(safe-area-inset-bottom);
 
-微信分享步骤
+####微信分享步骤
 
 1.首先import Share from 'wechat-share-manager';初始化一个分享实例
 
