@@ -557,7 +557,10 @@ fn = currying(add)
 如果第一次传递的是两个参数，则仍需要传递出去一个函数来进行参数接收 。则下次比较的参数就应该是1个 原先的三个减去传进来的两个 则是1个 如果再次传进来一个参数 就应该调用fn函数
 
 ## cookie的携带方式
+
 请求：本地起服务在http:local.school.com 浏览器打开之后向http:test.school.com上进行请求；
+
+（此时是在local服务器来请求test上的服务，所以有跨域）下面就是解决跨域的方法
 
 此时需要在请求http:test.school.com上携带上cookie;
 
