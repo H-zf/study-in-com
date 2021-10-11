@@ -19,6 +19,8 @@ Js继承 组合继承 寄生组合继承
 Promise当使用promise使用all方法的时候 我们需要做错误异常处理的时候我们可以自己在map定义prommise的时候 自定义出需要return的数据
 Promise 封装的时候会将你的函数返回值再次封装promise所以return 出具体值的时候你.then也是可以获取到值的
 ## Token 
+一般是后台在返回的时候设置cookie，然后前端获取到cookie然后设置到请求头中
+
 一般单点登录以后 前端是可以使用document。cookie来读取cookie的 可以设置在请求头的Authorization字段中以Bearer
 Token  将token带过来之后 在路由加载完成在讲地址栏中的token进行清除 location.hash
 开头
