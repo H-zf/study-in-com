@@ -819,6 +819,8 @@ safe-area-inset-bottom ：安全距离底部边界的距离
 
 vue3 项目搭建，使用vite脚手架来构建项目框子
 
+小项目使用pinia来做状态管理 可以使用tailwindcss来做适配和管理css
+
 ref 与 toRef toRefs的区别 
 
 ref关联的值在改变的时候，不会影响到原有的值，原来的值变化也不会影响到ref关联后的值 但是toref和toRefs在修改值的时候会修改到原来的值， 不管的定义的值是响应式还是非响应式,  原来的值变化，会影响到toref 与 torefs关联后的值
