@@ -829,6 +829,7 @@ https://overreacted.io/zh-hans/before-you-memo/
 
 npm 引入包的时候是可以进行传值的。export出来函数，然后进行使用的时候就可以进行传递值
 npm ci 可以根据package-lock.json来下载依赖，多人开发不会因为依赖不同导致出现问题。
+npm outdated 可以查看是否包是否有兼容性的问题，红色代表可以任意升级，黄色是有兼容性版本
 	
 	
 	
