@@ -828,6 +828,7 @@ ref关联的值在改变的时候，不会影响到原有的值，原来的值�
 https://overreacted.io/zh-hans/before-you-memo/
 
 npm 引入包的时候是可以进行传值的。export出来函数，然后进行使用的时候就可以进行传递值
+npm ci 可以根据package-lock.json来下载依赖，多人开发不会因为依赖不同导致出现问题。
 	
 	
 	
