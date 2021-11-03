@@ -828,8 +828,10 @@ ref关联的值在改变的时候，不会影响到原有的值，原来的值�
 https://overreacted.io/zh-hans/before-you-memo/
 
 npm 引入包的时候是可以进行传值的。export出来函数，然后进行使用的时候就可以进行传递值
+
 npm ci 可以根据package-lock.json来下载依赖，多人开发不会因为依赖不同导致出现问题。
-npm outdated 可以查看是否包是否有兼容性的问题，红色代表可以任意升级，黄色是有兼容性版本
+
+npm outdated 可以查看是否包是否有兼容性的问题，红色代表可以任意升级，黄色是有兼容性版本；npm update则可以将红色进行更新（黄色不能随意更新，可能版本之间差异很大）
 	
 	
 	
