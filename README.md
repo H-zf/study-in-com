@@ -826,7 +826,8 @@ ref 与 toRef toRefs的区别
 ref关联的值在改变的时候，不会影响到原有的值，原来的值变化也不会影响到ref关联后的值 但是toref和toRefs在修改值的时候会修改到原来的值， 不管的定义的值是响应式还是非响应式,  原来的值变化，会影响到toref 与 torefs关联后的值
 	
 https://overreacted.io/zh-hans/before-you-memo/
-	
+
+npm 引入包的时候是可以进行传值的。export出来函数，然后进行使用的时候就可以进行传递值
 	
 	
 	
