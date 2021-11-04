@@ -840,6 +840,8 @@ https://ts.xcatliu.com/basics/type-assertion.html
 https://tinypng.com/
 	
 https://jkchao.github.io/typescript-book-chinese/#why
+
+xmind
 	
 	
 	
