@@ -834,8 +834,10 @@ npm ci 可以根据package-lock.json来下载依赖，多人开发不会因为�
 npm outdated 可以查看是否包是否有兼容性的问题，红色代表可以任意升级，黄色是有兼容性版本；npm update则可以将红色进行更新（黄色不能随意更新，可能版本之间差异很大）
 
 npm prune 将没有使用的依赖进行删除
-	
-	
+
+https://ts.xcatliu.com/basics/type-assertion.html
+
+https://tinypng.com/
 	
 	
 	
