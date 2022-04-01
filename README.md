@@ -61,6 +61,8 @@ Git 发版的步骤
 
 1. 首先是在远程的tag上创建一个分支 然后切换过去 eg: git branch release/v1.73.0 v1.72.0
 
+#### git branch 本地新建分支名 v1.72.0（远程tag分支名）
+
 2. 然后在分支上cherrypick自己需要的代码hash  eg: git cherry-pick 0396bccb8829cd9efe4b0a17d19d642bb2e4ffa4
 
 3. 然后推到远程的分支上  add commit pull push 
